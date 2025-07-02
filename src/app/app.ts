@@ -9,4 +9,32 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected title = 'CoinFlip';
+  headUrl = 'https://media.geeksforgeeks.org/wp-content/uploads/20200916123059/SHalfDollarObverse2016head-300x300.jpg'
+  tailUrl = 'https://media.geeksforgeeks.org/wp-content/uploads/20200916123125/tails-200x200.jpg'
+  imgUrl = this.headUrl
+  isHead = true;
+
+  count = 0
+  heads = 0
+  tails = 0
+  coinFlip(){
+    this.count = this.count += 1;
+    if(this.isHead){
+      this.isHead = false
+      this.imgUrl = this.tailUrl
+      this.tails += 1
+      return this.imgUrl
+    } else{
+ this.isHead = true
+    this.imgUrl = this.headUrl
+    this.heads += 1
+    return this.imgUrl
+    }
+   
+  }
+  Reset(){
+    this.count = 0
+    this.heads = 0
+    this.tails = 0
+  }
 }
